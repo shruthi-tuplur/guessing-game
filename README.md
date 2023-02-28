@@ -1,1 +1,1 @@
-This is a repo for learning git
+hello my name is shruthi
