@@ -1,0 +1,84 @@
+body {
+    background-color: black;
+}
+main {
+    display: flex;
+    height: 80vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    color: white;
+    font-family: 'Quicksand', sans-serif;;
+}
+
+input {
+    
+    width: 100px;
+    height: 30px;
+    margin-bottom: 10px;
+    
+}
+
+#guess-box-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.guess-line {
+    display: none;
+    justify-content: space-between;
+    width: 25vw;
+}
+
+.guess-num {
+    border: 1px solid;
+    padding: 5px;
+    padding-top: 8px;
+    height: 30px;
+    width: 33px;
+    border-radius: 20%;
+    text-align: center;
+}
+
+#buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+}
+
+#reset {
+    margin-right: 3px;
+    font-family: 'Quicksand';
+    font-size: larger;
+}
+
+#hint {
+    margin-left: 3px;
+    font-family: 'Quicksand';
+    font-size: larger;
+}
+
+#guesses {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.moon {
+    
+    margin: auto;
+    position: absolute;
+    top: 90;
+    right: 0;
+    bottom: 10;
+    left: 1100px;
+    width: 100px;
+    height: 100px;
+    background-color: transparent;
+    border-radius: 50%;
+    box-shadow: 25px 10px 0px 0px yellow;
+}
