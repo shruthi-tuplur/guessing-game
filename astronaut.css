@@ -38,6 +38,20 @@ body {
     border: solid 1px rgb(40, 33, 42);
 }
 
+.visor-reflection {
+    margin: auto;
+    position: absolute;
+    top: 64px;
+    right: 91px;
+    bottom: 10;
+    left: 0px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgb(134, 110, 141);
+    
+}
+
 .right-ear {
     margin: auto;
     position: absolute;
@@ -137,13 +151,27 @@ body {
 .left-thumb {
     margin: auto;
     position: absolute;
-    top: 157px;
+    top: 165px;
     right: 190px;
     bottom: 10;
     left: 0;
-    width: 5px;
-    height: 2px;
-    transform: rotate(-15deg);
+    width: 8px;
+    height: 5px;
+    transform: rotate(45deg);
+    border-radius: 0px 0px 50% 50%;
+    background-color: rgb(223, 223, 223); 
+}
+
+.left-thumb {
+    margin: auto;
+    position: absolute;
+    top: 165px;
+    right: 190px;
+    bottom: 10;
+    left: 0;
+    width: 8px;
+    height: 5px;
+    transform: rotate(45deg);
     border-radius: 0px 0px 50% 50%;
     background-color: rgb(223, 223, 223); 
 }
