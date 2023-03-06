@@ -1,18 +1,23 @@
 body {
-    background-image: url('images/background.jpeg');
+    background-color: black;
+    display: flex;
+    flex-direction: column;
 }
 main {
     display: flex;
-    height: 60vh;
+    height: 100vh;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 
     color: white;
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Press Start 2P', cursive;
     
 }
 
+h3 {
+    margin-bottom: 30px;
+}
 input {
     
     width: 100px;
@@ -29,8 +34,16 @@ input {
 
 .guess-line {
     display: none;
+    flex-direction: row;
     justify-content: space-between;
-    width: 25vw;
+    width: 544px;
+}
+
+#answer {
+    display: none;
+    flex-direction: row;
+    color: white;
+    margin-bottom: 15px;
 }
 
 .guess-num {

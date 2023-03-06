@@ -7,10 +7,15 @@ let submit = document.getElementById('submit');
 let guessBox = document.getElementById('guess-box')
 let guessesList = [];
 let userGuess = document.getElementById('guess-box').value
+let enter = document.getElementById('enter-to-submit');
 
 function getGuess(){
     userGuess = document.getElementById('guess-box').value
-    
+
+    if (userGuess < 1 || userGuess > 100) {
+        alert('sorry! must enter a number between 1-100');
+    } else {
+
     guessesList.push(userGuess);
     
     let distanceMessage = '';
@@ -24,24 +29,28 @@ function getGuess(){
     
 
     if (distance === 0) {
-        distanceMessage= 'YOU GOT IT!';
+        distanceMessage= 'GOOD JOB! YOU GOT IT!';
+        guessBox.style.display = 'none';
+        enter.innerText = 'GAME OVER! REFRESH PAGE TO PLAY AGAIN'
+        myBorderColor= '#54EAFF';
+
         
     } else if (distance < 3) {
         distanceMessage= 'burning hot!';
-        myBorderColor = '#FF547C'
+        myBorderColor = '#FF547C';
     } else if (distance < 5) {
         distanceMessage= 'getting hot!';
-        myBorderColor = '#FF5A00'
+        myBorderColor = '#FF5A00';
     } else if (distance < 10) {
         distanceMessage = 'getting warm!';
         myBorderColor = '#FFB000';
     } else if (distance < 15) {
-        distanceMessage = 'getting close-ish';
+        distanceMessage = 'getting close-ish, ';
         myBorderColor = '#FCFF00';
     }
     
      else {
-        distanceMessage = 'far away :(' 
+        distanceMessage = 'far away :('; 
     }
 
 
@@ -55,74 +64,40 @@ function getGuess(){
         upOrDown = '';
     }
 
-    console.log(distanceMessage);
+    
 
-    if (guessesList.length === 1) {
-    let guess1 = document.getElementById('guess-1');
-    let guess1Num = document.getElementById('guess-1-num');
-    let guess1Text = document.getElementById('guess-1-text');
+    let guessLength = guessesList.length;
 
-    guess1.style.display = 'flex';
-    guess1Num.innerText = `${userGuess}`;
-    guess1Num.style.borderColor = myBorderColor;
-    guess1Text.innerText = `${distanceMessage} ${upOrDown}`;
-    guess1Text.style.color = myBorderColor;
+    let currentGuess = document.getElementById(`guess-${guessLength}`);
+    let currentGuessNum = document.getElementById(`guess-${guessLength}-num`);
+    let currentGuessText = document.getElementById(`guess-${guessLength}-text`);
+
+   
+    currentGuess.style.display = 'flex';
+    currentGuessNum.innerText = `${userGuess}`;
+    currentGuessNum.style.borderColor = myBorderColor;
+
+    if (guessesList.length === 5 && distance != 0) {
+        currentGuessText.innerText = `SORRY, YOU LOSE! `; 
+        guessBox.style.display = 'none';
+        document.getElementById('answer').style.display = 'flex';
+        document.getElementById('answer').innerText = `THE CORRECT ANSWER IS ${chosenNum}`;
+        enter.innerText = 'GAME OVER! REFRESH TO PLAY AGAIN'
+
+    } else if (distance != 0) {
+    currentGuessText.innerText = `${distanceMessage} ${upOrDown}`;
+    } else {
+        currentGuessText.innerText = `${distanceMessage}`
     }
-
-    else if (guessesList.length === 2) {
-        let guess2 = document.getElementById('guess-2');
-        let guess2Num = document.getElementById('guess-2-num');
-        let guess2Text = document.getElementById('guess-2-text');
-
-        guess2.style.display = 'flex';
-        guess2Num.innerText = `${userGuess}`;
-        guess2Num.style.borderColor = myBorderColor;
-        guess2Text.innerText = `${distanceMessage} ${upOrDown}`;
-        guess2Text.style.color = myBorderColor;
-    }
-
-
-    else if (guessesList.length === 3) {
-        let guess3 = document.getElementById('guess-3');
-        let guess3Num = document.getElementById('guess-3-num');
-        let guess3Text = document.getElementById('guess-3-text');
-
-        guess3.style.display = 'flex';
-        guess3Num.innerText = `${userGuess}`;
-        guess3Num.style.borderColor = myBorderColor;
-        guess3Text.innerText = `${distanceMessage} ${upOrDown}`;
-        guess3Text.style.color = myBorderColor;
-    }
-
-    else if (guessesList.length === 4) {
-        let guess4 = document.getElementById('guess-4');
-        let guess4Num = document.getElementById('guess-4-num');
-        let guess4Text = document.getElementById('guess-4-text');
-
-        guess4.style.display = 'flex';
-        guess4Num.innerText = `${userGuess}`;
-        guess4Num.style.borderColor = myBorderColor;
-        guess4Text.innerText = `${distanceMessage} ${upOrDown}`;
-        guess4Text.style.color = myBorderColor;
-    }
-
-    else if (guessesList.length === 5) {
-        let guess5 = document.getElementById('guess-5');
-        let guess5Num = document.getElementById('guess-5-num');
-        let guess5Text = document.getElementById('guess-5-text');
-
-        guess5.style.display = 'flex';
-        guess5Num.innerText = `${userGuess}`;
-        guess5Num.style.borderColor = myBorderColor;
-        guess5Text.innerText = `${distanceMessage} ${upOrDown}`;
-        guess5Text.style.color = myBorderColor;
-    }
+    currentGuessText.style.color = myBorderColor;
     
     userGuess = '';
+}
 }
 
 //submit.addEventListener('click', getGuess)
 
+if (guessesList.length < 5) {
 guessBox.addEventListener('keyup', function(event){
     if(event.key === 'Enter'){
         getGuess();
@@ -130,4 +105,4 @@ guessBox.addEventListener('keyup', function(event){
     }
 })
 }
-
+}
